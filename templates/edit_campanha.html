@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar campanha</title>
+</head>
+{% block content %} 
+
+{% for message in get_flashed_messages() %} 
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>      
+{% endfor %}
+<body>
+
+{% if current_user.is_authenticated %}
+    <div class="shadow p-3 mb-5 bg-body-secondary  rounded">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control") }}
+            </br>
+            {{ form.finality.label(class="form-label") }}
+            {{ form.finality(class="form-control", placeholder="Ex: Animais, Doença...") }}
+            </br>
+            {{ form.goal.label(class="form-label") }}
+            {{ form.goal(class="form-control") }}
+            </br>
+            {{ form.slug.label(class="form-label") }}
+            {{ form.slug(class="form-control") }}
+            </br>
+            {{ form.content.label(class="form-label") }}
+            {{ form.content(class="form-control", rows="10") }}
+            </br>
+            {{ form.submit(class="btn btn-primary") }}
+    
+        </form>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='content') }}
+    </div>
+    {% else %}
+        <h2> Desculpe, você deve estar logado para essar página.</h2>
+        <a href="{{ url_for('login') }}"> Voltar para o Login</a>
+    {% endif %}
+
+    <a href="{{ url_for('campanhas') }}" class="btn btn-secondary btn-sm"> Voltar para as campanhas</a>
+
+    
+      
+    
+
+
+
+</body>
+{% endblock %}
+</html>

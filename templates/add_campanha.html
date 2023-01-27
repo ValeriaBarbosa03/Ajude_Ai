@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar campanha</title>
+</head>
+{% block content %} 
+{{ ckeditor.load() }}
+
+{% for message in get_flashed_messages() %} 
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>     
+{% endfor %}
+<body>
+</br>
+
+{% if current_user.is_authenticated %}
+    <div class="shadow p-3 mb-5 bg-body-secondary  rounded ">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <label for="title">Título</label>
+            <input type="text" name="title" class="form-control" >
+            </br>
+            <label for="finality">Finalidade da campanha</label>
+            <input type="text" name="finality" class="form-control" placeholder="Ex: Animais, Doença..."  >
+            </br>
+            <label for="goal">Meta da campanha</label>
+            <input type="number" name="goal" class="form-control" >
+            </br>
+            <label for="slug">Palavras-chave da campanha</label>
+            <input type="text" name="slug" class="form-control"  >
+            </br>
+            <label for="content">Conteúdo da campanha</label>
+            {{ form.content(class="form-control", rows="10") }} 
+            </br>
+            {{ form.submit(class="btn btn-primary btn-sm") }}
+            <button  type="reset" class="btn btn-light btn-sm ">Limpar</button>
+            <a href=" {{ url_for('dashboard') }}" class="btn btn-secondary btn-sm"> Voltar</a>
+    
+        </form>
+
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='content') }}
+        
+
+    </div>
+    
+{% else %}
+    <h2> Desculpe, você deve estar logado para acessar essa página.</h2>
+    </br>
+    <a href=" {{ url_for('login') }}" class="btn btn-secondary btn-sm"> Voltar</a>
+{% endif %}
+
+
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar usuário</title>
+</head>
+{% block content %} 
+<body>
+{% for message in get_flashed_messages() %} 
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>   
+{% endfor %}
+
+{% if id == current_user.id %}
+    </br>
+    <div class="fs-2 mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+    </svg>
+    </div>
+    <div class="shadow p-3 mb-5 bg-body-gray rounded">
+    <form action="/update/{{name_update.id}}" method="POST">
+        {{ form.hidden_tag() }}
+        <label for="name">Nome</label>
+        <input type="text" class="form-control"  value="{{name_update.name}}" name="name"> 
+        </br>
+        <label for="username">Usernome</label>
+        <input type="text" class="form-control"  value="{{name_update.username}}" name="username"> 
+        </br>
+        <label for="email">Email</label>
+        <input type="email" class="form-control"  value="{{name_update.email}}" name="email"> 
+        </br>
+        <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+        <a href="{{url_for('delete', id=id)}}" class="btn btn-danger btn-sm">Delete</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{url_for('dashboard', id=id)}}" class="btn btn-secondary btn-sm">Voltar</a>
+        {% else %}
+            <a href="{{url_for('add_user', id=id)}}" class="btn btn-secondary btn-sm">Voltar</a>
+        {% endif %}
+
+    </form>
+    </div>
+{% else %} 
+    <h2> Acesso negado!</h2>
+    <p>Você não pode acessar outro perfil de usuário.</p>
+{% endif %}
+    
+</body>
+{% endblock %}
+</html>
+ 
+
+

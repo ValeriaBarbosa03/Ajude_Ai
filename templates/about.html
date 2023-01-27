@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet">
+    <title>Sobre</title>
+</head>
+<body>
+{% block content %} 
+</br>
+<div class="shadow p-3 mb-5 bg-body-secondary  rounded">
+    <h2>Sobre Nós</h2>
+    <img src="/static/images/hands.jpg" width="350px" style="margin-bottom: 10px;" class="img-fluid" alt="Responsive image">
+    </br>
+    <p  class="card-text">O Ajuda Aí nasceu para inspirar e mobilizar pessoas e organizações com o propósito de ajudar os outros.
+        Acreditamos que, para que nosso país consiga desenvolver plenamente seus potenciais, precisamos trabalhar juntos, cultivando a doação e o
+        engajamento de toda a sociedade em causas e projetos de transformação social e ambiental geridos e executados por organizações da sociedade civil.
+        Elas têm um papel fundamental na gestão e execução de iniciativas de interesse coletivo e necessitam fortalecer-se institucional para ampliar sua
+        contribuição para a sociedade.</p>
+    <p> O site do Ajuda Aí foi criado em 2012 como uma articulação ampla, formada por pessoas que se organizaram voluntariamente, de maneira
+        informal e orgânica, para promover e incentivar a doação no Brasil. Somos uma rede aberta, horizontal, democrática, composta por instituições
+        e cidadãos interessados no tema.  </p>
+    
+
+
+{% endblock %}
+</body>
+</html>
+
+

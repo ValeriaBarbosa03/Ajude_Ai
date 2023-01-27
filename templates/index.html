@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+<body>
+    {% block content %} 
+  </br>
+    <main class="container-card-top">
+      <div class="shadow p-3 mb-5 bg-body-secondary rounded">
+        <h1>Ajude Aí</h1>Plataforma para cadastro de campanhas de doação.</p>
+        <a class="btn btn-lg btn-primary" href="{{ url_for('campanhas') }}" role="button">Ver campanhas »</a>
+      </div>
+    </main>
+    <div class="card shadow p-3 mb-5 bg-body-secondary rounded ">
+      <div class="card-header">
+        Opniões
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Graças ao Ajude Aí eu consegui o remédio que minha filha precisava e foi uma ajuda e tanto. </p>
+          <footer class="blockquote-footer">Paula<cite title="Source Title"> Usuária do Ajude Aí </cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  <div class="card shadow p-3 mb-5 bg-body-secondary rounded ">
+    <div class="card-header">
+      Opniões
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>Com a ajuda do Ajude Aí consegui realizar meu sonho de ajudar os animais abandonados no meu bairro. </p>
+        <footer class="blockquote-footer">Carlos<cite title="Source Title"> Usuário do Ajude Aí </cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  </br>
+  <div class="title-cards">
+    <h2>Campanhas ajudadas</h2>
+  </div>
+    </br>
+    <div class="card-group">
+      <div class="card">
+        <img class="card-img-top" src="static/images/pessoas.jpg" alt="Card image cap" style="height: 250px;">
+        <div class="card-body">
+          <h5 class="card-title">Campanha de formatura</h5>
+          <p class="card-text">Olá somos graduandos do curso de Medicina da UFPE e criamos essa campanha para ajudar na nossa formatura...</p>
+          <p class="card-text"><small class="text-muted">Última atualização 15 meses atrás</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="static/images/animais.jpg" alt="Card image cap" style="height: 250px;">
+        <div class="card-body">
+          <h5 class="card-title">Adote um animal!</h5>
+          <p class="card-text">Campanha criada com o objetivo de ajudar os animais que precisam ser adotados...</p>
+          <p class="card-text"><small class="text-muted">Última atualização 10 meses atrás</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="static/images/crianças.jpg" alt="Card image cap" style="height: 250px;">
+        <div class="card-body">
+          <h5 class="card-title">Ajude as crianças!</h5>
+          <p class="card-text">Camapanha criada para ajudar as crianças que estão precisando de ajuda no lar Pequenos Sonhos...</p>
+          <p class="card-text"><small class="text-muted">Última atualização 20 meses atrás</small></p>
+        </div>
+      </div>
+    </div>
+  </br>
+  <div class="card-group">
+    <div class="card">
+      <img class="card-img-top" src="static/images/viagem.jpg" alt="Card image cap" style="height: 250px;">
+      <div class="card-body">
+        <h5 class="card-title">Campanha de viagem</h5>
+        <p class="card-text">Olá sou Gabriel e criei essa campanha para ajudar na minha viagem dos sonhos para o Cáncun...</p>
+        <p class="card-text"><small class="text-muted">Última atualização 16 meses atrás</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="static/images/seca.jpg" alt="Card image cap" style="height: 250px;">
+      <div class="card-body">
+        <h5 class="card-title">Ajude a população no interior de Pernambuco</h5>
+        <p class="card-text">Campanha criada com o objetivo de ajudar as pessoas que precisam de  ajuda por causa da seca na região...</p>
+        <p class="card-text"><small class="text-muted">Última atualização 10 meses atrás</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="static/images/idosos.jpg" alt="Card image cap" style="height: 250px;">
+      <div class="card-body">
+        <h5 class="card-title">Ajude os idosos do Lar de Maria</h5>
+        <p class="card-text">Camapanha criada para ajudar os idosos que estão precisando de ajuda no Lar de Maria...</p>
+        <p class="card-text"><small class="text-muted">Última atualização 6 meses atrás</small></p>
+      </div>
+    </div>
+  </div>
+
+    </br>
+    <div class="b-example-divider"></div>
+    <hr class="featurette-divider">
+    <footer class="container-footer">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>© 2023 Ajude Aí, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      
+    </footer>
+   
+
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+
+
+    {% endblock %}
+    
+</body>
+</html>
+

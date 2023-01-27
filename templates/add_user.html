@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block content %} 
+<body>
+{% for message in get_flashed_messages() %} 
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>     
+{% endfor %}
+
+{% if name %} 
+    <h2>Usuários:</h2>
+    </br>
+<!-- <table class="table table-striped-columns table-hover">
+{% for our_user in our_users %} 
+    <tr>
+    <td>{{ our_user.id }}. <a href="{{url_for('update', id=our_user.id)}}">
+    {{ our_user.name}}</a> - {{ our_user.email }} - {{ our_user.username }} - PW: {{ our_user.password_hash }} <a href="{{url_for('delete', id=our_user.id)}}">Delete</a></td>
+    </tr>
+{% endfor  %}
+</table> -->
+
+{% else %} 
+    <br/>
+<div class="shadow p-3 mb-5 bg-body-secondary rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" name="name">
+        </br>
+        <label for="username">Usuário</label>
+        <input type="text" class="form-control" name="username">
+        </br>
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email">
+        </br>
+        <label for="password_hash">Senha</label>
+        <input type="password" class="form-control" name="password_hash">
+        </br>
+        <label for="password_hash2">Confirmar Senha</label>
+        <input type="password" class="form-control" name="password_hash2">
+        </br>
+        <button  type="submit" class="btn btn-primary btn-sm ">Enviar</button>
+        <button  type="reset" class="btn btn-secondary btn-sm ">Limpar</button>
+    
+        
+
+    </form>
+    </div>
+    <!-- <h1>Usuários:</h1> -->
+<!-- <table class="table table-striped-columns table-hover">
+{% for our_user in our_users %} 
+    <tr>
+    <td>{{ our_user.id }}. <a href="{{url_for('update', id=our_user.id)}}">
+    {{ our_user.name}}</a> - {{ our_user.email }} - {{ our_user.username }} - PW: {{ our_user.password_hash }} <a href="{{url_for('delete', id=our_user.id)}}">Delete</td>
+    </tr>
+{% endfor  %}
+</table> -->
+
+{% endif %}
+
+<body>
+{% endblock %}
+</html>
+
+    
+       
+   
