@@ -1,3 +1,5 @@
+#-*- decoding: utf-8 -*-
+encoding="utf-8"
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, RadioField, PasswordField, BooleanField, ValidationError, IntegerField
 from wtforms.validators import DataRequired, EqualTo, Length, InputRequired

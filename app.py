@@ -1,3 +1,4 @@
+#-*- encoding: utf-8 -*-
 from flask import Flask, render_template,flash, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -10,13 +11,16 @@ from flask_ckeditor import CKEditor
 from werkzeug.utils import secure_filename
 import uuid as uuid
 import os
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 
 app = Flask(__name__)
 ckeditor = CKEditor(app)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://fnpzajtggbetfs:9f6503969c8fc99cc197d6b14bae8d186319f5c8b82a020ab8b24415c79de8f1@ec2-34-197-84-74.compute-1.amazonaws.com:5432/d6ktgaju1p67nh'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://fnpzajtggbetfs:9f6503969c8fc99cc197d6b14bae8d186319f5c8b82a020ab8b24415c79de8f1@ec2-34-197-84-74.compute-1.amazonaws.com:5432/d6ktgaju1p67nh'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:bancod2830/*@localhost/usuarios'
 app.config['SECRET_KEY'] = "my secret key"
 
